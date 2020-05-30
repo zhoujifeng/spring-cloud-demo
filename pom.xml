@@ -12,6 +12,7 @@
         <module>eureka/eureka-server</module>
         <module>eureka/eureka-client</module>
         <module>ribbon/ribbon-consumer</module>
+        <module>feign-consumer</module>
     </modules>
 
     <!--管理对应包的version-->
