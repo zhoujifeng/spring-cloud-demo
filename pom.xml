@@ -12,6 +12,8 @@
         <module>eureka/eureka-server</module>
         <module>eureka/eureka-client</module>
         <module>ribbon/ribbon-consumer</module>
+        <module>feign/feign-consumer</module>
+        <module>spring/spring-base</module>
     </modules>
 
     <!--管理对应包的version-->
