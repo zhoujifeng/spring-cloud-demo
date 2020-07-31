@@ -2,10 +2,8 @@ package com.kind.springcloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author zhoujifeng
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Slf4j
+@RequestMapping("/v1/card")
 public class Controller {
 
 
@@ -26,8 +25,38 @@ public class Controller {
         return "this is " + port;
     }
 
+    @RequestMapping(value = "/balance",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public String info(){
+        return "this is info " + port;
+    }
+
     @PostMapping("/sayHi")
     public Friend sayHiPost(@RequestBody Friend friend){
+
+        log.info("You are " + friend.getName());
+        friend.setPort(port);
+        return friend;
+
+    }
+
+
+
+    @PostMapping("/posttest")
+    public Friend postTest(@RequestBody Friend friend){
+
+        log.info("You are " + friend.getName());
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        friend.setPort(port);
+        return friend;
+
+    }
+
+    @PostMapping("/postTestRes")
+    public Friend postTestRes(@RequestBody Friend friend){
 
         log.info("You are " + friend.getName());
         friend.setPort(port);

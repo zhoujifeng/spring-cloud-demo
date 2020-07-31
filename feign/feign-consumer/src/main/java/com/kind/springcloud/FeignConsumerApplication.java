@@ -10,8 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author zhoujifeng
  * @date 2020/5/29 9:19 下午
  */
+@SpringBootApplication(scanBasePackages = {"com.kind.springcloud", "feign"})
 @EnableDiscoveryClient
-@SpringBootApplication
 @EnableFeignClients
 public class FeignConsumerApplication {
 
